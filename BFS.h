@@ -9,7 +9,16 @@ void BFS() {
 	int* size = new int;
 	int* start = new int;
 
+	/*
+		 {0,1,1,1,0,0},
+		 {0,0,0,0,1,0},
+		 {0,1,0,0,0,0},
+		 {0,0,0,0,0,1},
+		 {0,0,0,0,0,0},
+		 {0,0,1,0,1,0},
+	*/
 	int** G = set_matrix(size);
+	
 
 	show_matrix(G, size);
 

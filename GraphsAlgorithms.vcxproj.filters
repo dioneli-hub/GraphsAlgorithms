@@ -20,13 +20,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BFS.h">
+    <ClInclude Include="utils.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="START_PACK.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="DFS.h">
+    <ClInclude Include="FSA.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

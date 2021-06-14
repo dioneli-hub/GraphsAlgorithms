@@ -2,6 +2,7 @@
 #ifndef START_H
 #define START_H
 
+
 int** set_matrix(int* size) {
 
 	cout << "Enter the size of the matrix: " << endl;
@@ -25,6 +26,19 @@ int** set_matrix(int* size) {
 
 void show_matrix(int** m, int* const size) {
 
+	cout << "\nMatrix:\n";
+
+	for (int i = 0; i < *size; i++) {
+		for (int j = 0; j < *size; j++)cout << m[i][j] << " ";
+		cout << endl;
+	}
+
+	cout << "\n";
+}
+
+//refactor
+void show_matrix(int m[][6], int* const size) {
+
 	cout << "Matrix:\n";
 
 	for (int i = 0; i < *size; i++) {
@@ -47,6 +61,8 @@ void set_starting_point(int* start, int* const size) {
 	do {
 		cin >> *start;
 	} while (!(*start < *size));
+
+	cout << "\n";
 }
 
 void deallocate_matrix(int** m, int* const size) {
