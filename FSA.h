@@ -39,8 +39,6 @@ list<int> l4 = {
 vector<list<int>> TESTS = { l1,l2,l3,l4 };
 
 
-
-
 class FSA 
 {
 private:
@@ -85,13 +83,13 @@ private:
 				++x;
 			}
 				
-		cout << "\n\n";
+		//cout << "\n\n";
 
 		return Matrix;
 	}
 
 	static void show_matrix(int** m, int* const size) {
-		cout << "\nMatrix:\n";
+		cout << "Matrix:\n\n";
 
 		for (int i = 0; i < *size; i++) {
 			for (int j = 0; j < *size; j++)cout << m[i][j] << " ";
@@ -206,7 +204,8 @@ public:
 			}
 		}
 
-		cin >> u;
+		system("pause");
+
 		deallocate_matrix(G, size);
 		delete[] colors;
 		delete size;

@@ -85,8 +85,14 @@ public:
         }
         //g.showList(2, *g.adjList);
         for (int i = 0; i < n; i++)
-            if (i != start)
+            if (i != start) {
+                if (dist[i] == 9999) {
+                    cout << start << " to " << i << ", way impassable." << endl;
+                    continue;
+                }
                 cout << start << " to " << i << ", cost: " << dist[i] << ", previous: " << prev[i] << endl;
+            }
+                
     };
     friend class Graph;
 };
