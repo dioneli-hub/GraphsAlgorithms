@@ -2,9 +2,23 @@
 #ifndef FSA_H
 #define FSA_H
 
+
+list<int> l1 = {
+			 0,1,1,1,0,0,
+			 0,0,0,0,1,0,
+			 0,1,0,0,0,0,
+			 0,0,0,0,0,1,
+			 0,0,0,0,0,0,
+			 0,0,1,0,1,0,
+};
+
+
 class FSA 
 {
 private:
+	
+	
+
 	static int** set_matrix(int* size) {
 		cout << "Enter the size of the matrix: " << endl;
 		cin >> *size;
@@ -25,6 +39,30 @@ private:
 		return Matrix;
 	}
 
+	static int** set_matrix_example(int* size) {
+
+		int** Matrix = new int* [6];
+		*size = 6;
+
+		// creating the adjacency matrix
+		for (int i = 0; i < 6; i++)
+			*(Matrix + i) = new int[6];
+
+		list<int>::iterator x=l1.begin();
+
+
+		// filling the matrix with values
+		for (int i = 0; i < 6; i++)
+			for (int j = 0; j < 6; j++) {
+				Matrix[i][j] = *x;
+				++x;
+			}
+				
+		cout << "\n\n";
+
+		return Matrix;
+	}
+
 	static void show_matrix(int** m, int* const size) {
 		cout << "\nMatrix:\n";
 
@@ -35,17 +73,6 @@ private:
 
 		cout << "\n";
 	}
-
-	//refactor
-	/*void show_matrix(int m[][6], int* const size) {
-
-		cout << "Matrix:\n";
-
-		for (int i = 0; i < *size; i++) {
-			for (int j = 0; j < *size; j++)cout << m[i][j] << " ";
-			cout << endl;
-		}
-	} */
 
 	static void set_colors(int* colors, int* const size) {
 		// fill in colors
@@ -87,7 +114,9 @@ public:
 		int* size = new int;
 		int* start = new int;
 
-		int** G = set_matrix(size);
+		int** G = set_matrix_example(size);
+		
+		//int** G = set_matrix(size);
 
 		show_matrix(G, size);
 
