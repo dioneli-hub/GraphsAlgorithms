@@ -56,7 +56,7 @@ public:
 
 	static int get_menu() {
 		int selectedMenu = 0;
-		char key;
+		//char key;
 
 		do {
 			refresh_menu(selectedMenu);

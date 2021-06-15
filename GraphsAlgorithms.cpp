@@ -11,10 +11,14 @@
 
 using namespace std;
 
+#include <list>
+#include <set>
+#include <algorithm>
 #include <queue>
 #include <stack>
 #include "utils.h"
 #include "FSA.h"
+#include "Dijkstra.h"
 
 /*
 
@@ -57,7 +61,7 @@ int main()
 			utils::resize_window(700, 700);
 			utils::clearScreen();
 
-			cout << "dijkstra" << endl;
+			Dijkstra::run();
 
 			getchar();
 			break;
