@@ -68,7 +68,7 @@ private:
 
 		int test_No = rand() % TESTS.size();
 		list <int> test = TESTS[test_No];
-		*size = sqrt(l1.size());
+		*size = sqrt(test.size());
 
 		int** Matrix = new int* [*size];
 		
@@ -76,7 +76,7 @@ private:
 		for (int i = 0; i < *size; i++)
 			*(Matrix + i) = new int[*size];
 
-		list<int>::iterator x=l1.begin();
+		list<int>::iterator x=test.begin();
 
 		// filling the matrix with the example values
 		for (int i = 0; i < *size; i++)
