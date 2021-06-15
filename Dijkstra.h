@@ -51,40 +51,12 @@ public:
 class Dijkstra
 {
 private:
-    /*static int const n = 5;
-    static int dist[n], prev[n];
-    static int const start = 1;*/
-    static Graph graph1() {
-        int const n = 5;
-        Graph G(n);
-        //int dist[n], prev[n];
-        //int start = 1;
-
-
-        G.addEdge(0, 1, 10);
-        G.addEdge(0, 2, 3);
-        G.addEdge(1, 2, 1);
-        G.addEdge(1, 3, 2);
-        G.addEdge(2, 1, 4);
-        G.addEdge(2, 3, 8);
-        G.addEdge(2, 4, 2);
-        G.addEdge(3, 4, 7);
-        G.addEdge(4, 3, 9);
-
-        return G;
-    }
+    
 
 public:
     //Graph g, int* dist, int* prev, int start
-    static void run() {
-        Graph g = graph1();
+    static void run(Graph g, int* dist, int* prev, int start) {
         int n = g.n;
-        int start;
-        int* dist = new int[n];
-        int* prev = new int[n];
-
-        cout << "Enter the starting point:\n";
-        cin >> start;
         
         
         for (int u = 0; u < n; u++) {
@@ -111,7 +83,10 @@ public:
                 }
             }
         }
-        cin >> start;
+        //g.showList(2, *g.adjList);
+        for (int i = 0; i < n; i++)
+            if (i != start)
+                cout << start << " to " << i << ", cost: " << dist[i] << ", previous: " << prev[i] << endl;
     };
     friend class Graph;
 };
