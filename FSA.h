@@ -4,21 +4,46 @@
 
 
 list<int> l1 = {
-			 0,1,1,1,0,0,
-			 0,0,0,0,1,0,
-			 0,1,0,0,0,0,
-			 0,0,0,0,0,1,
-			 0,0,0,0,0,0,
-			 0,0,1,0,1,0,
+	    0, 1, 1, 1, 0, 0,
+		0, 0, 0, 0, 1, 0,
+		0, 1, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 1,
+		0, 0, 0, 0, 0, 0,
+		0, 0, 1, 0, 1, 0,
 };
+
+list<int> l2 = {
+		0, 1, 0, 0, 1, 
+		1, 0, 1, 1, 1, 
+		0, 1, 0, 1, 0, 
+		0, 1, 1, 0, 1, 
+		1, 1, 0, 1, 0, 
+};
+
+list<int> l3 = {
+		0, 1, 0, 0, 1,
+		0, 0, 1, 1, 1,
+		0, 0, 0, 0, 0,
+		0, 0, 1, 0, 0,
+		0, 0, 0, 1, 0,
+};
+
+list<int> l4 = {
+		0, 1, 1, 0, 0,
+		0, 0, 1, 0, 1,
+		0, 0, 0, 1, 0,
+		0, 0, 0, 0, 1,
+		0, 0, 0, 0, 0,
+};
+
+vector<list<int>> TESTS = { l1,l2,l3,l4 };
+
+
 
 
 class FSA 
 {
 private:
-	
-	
-
 	static int** set_matrix(int* size) {
 		cout << "Enter the size of the matrix: " << endl;
 		cin >> *size;
@@ -41,19 +66,21 @@ private:
 
 	static int** set_matrix_example(int* size) {
 
-		int** Matrix = new int* [6];
-		*size = 6;
+		int test_No = rand() % TESTS.size();
+		list <int> test = TESTS[test_No];
+		*size = sqrt(l1.size());
 
+		int** Matrix = new int* [*size];
+		
 		// creating the adjacency matrix
-		for (int i = 0; i < 6; i++)
-			*(Matrix + i) = new int[6];
+		for (int i = 0; i < *size; i++)
+			*(Matrix + i) = new int[*size];
 
 		list<int>::iterator x=l1.begin();
 
-
-		// filling the matrix with values
-		for (int i = 0; i < 6; i++)
-			for (int j = 0; j < 6; j++) {
+		// filling the matrix with the example values
+		for (int i = 0; i < *size; i++)
+			for (int j = 0; j < *size; j++) {
 				Matrix[i][j] = *x;
 				++x;
 			}
