@@ -1,2 +1,0 @@
-C:\Users\Dianka\source\repos\GraphsAlgorithms\Debug\GraphsAlgorithms.exe
-C:\Users\Dianka\source\repos\GraphsAlgorithms\Debug\GraphsAlgorithms.pdb
