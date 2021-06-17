@@ -104,38 +104,60 @@ private:
         print_distances(distance, pred, countOfVertex, startVertex);
     }
 
+    static void show_matrix(int** m, int const size) {
+        cout << "Matrix:\n\n";
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++)cout << m[i][j] << " ";
+            cout << endl;
+        }
+
+        cout << "\n";
+    }
+
+    static void set_start_vertex(int& start) {
+        cout << "Enter the starting vertex:" << endl;
+        cin >> start;
+        cout << "\n";
+    }
+
+
 public:
 
     static void run() {
-        int countOfVertex = 5;
-        int startVertex = 2;
+        int countOfVertices = 5;
+        int startVertex;
 
-        int** weights = new int* [countOfVertex] {
-            new int[countOfVertex] { 0, 10, 3, 0, 0 },
-                new int[countOfVertex] { 0, 0, 1, 2, 0 },
-                new int[countOfVertex] { 0, 4, 0, 8, 2 },
-                new int[countOfVertex] { 0, 0, 0, 0, 7 },
-                new int[countOfVertex] { 0, 0, 0, 9, 0 }
+        set_start_vertex(startVertex);
+
+        int** weights = new int* [countOfVertices] {
+            new int[countOfVertices] { 0, 10, 3, 0, 0 },
+                new int[countOfVertices] { 0, 0, 1, 2, 0 },
+                new int[countOfVertices] { 0, 4, 0, 8, 2 },
+                new int[countOfVertices] { 0, 0, 0, 0, 7 },
+                new int[countOfVertices] { 0, 0, 0, 9, 0 }
         };
 
+        show_matrix(weights, countOfVertices);
 
-        dijkstra(weights, startVertex, countOfVertex);
+        dijkstra(weights, startVertex, countOfVertices);
+        system("pause");
     }
 
 
     static void run_with_input() {
-        cout << "Please, enter count of vertex: ";
-        int countOfVertex = 0;
+        cout << "Please, enter the number of vertices: ";
+        int countOfVertices = 0;
 
-        cin >> countOfVertex;
+        cin >> countOfVertices;
 
-        int** weights = new int* [countOfVertex];
-        for (int i = 0; i < countOfVertex; i++) {
-            weights[i] = new int[countOfVertex];
+        int** weights = new int* [countOfVertices];
+        for (int i = 0; i < countOfVertices; i++) {
+            weights[i] = new int[countOfVertices];
         }
 
-        for (int i = 0; i < countOfVertex; i++) {
-            for (int j = 0; j < countOfVertex; j++) {
+        for (int i = 0; i < countOfVertices; i++) {
+            for (int j = 0; j < countOfVertices; j++) {
                 cout << "weights[" << i << ", " << j << "] = ";
                 cin >> weights[i][j];
             }
@@ -147,7 +169,7 @@ public:
         cin >> startVertex;
 
 
-        dijkstra(weights, startVertex, countOfVertex);
+        dijkstra(weights, startVertex, countOfVertices);
     }
 
 };
