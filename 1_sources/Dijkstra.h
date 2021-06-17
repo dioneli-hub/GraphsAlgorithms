@@ -116,9 +116,17 @@ private:
     }
 
     static void set_start_vertex(int& start) {
-        cout << "Enter the starting vertex:" << endl;
+        cout << "Please, enter the starting vertex:" << endl;
         cin >> start;
         cout << "\n";
+    }
+
+    static void deallocate_matrix(int** m, int const size) {
+
+        for (int i = 0; i < size; i++)
+            delete[] m[i]; //removing component arrays
+
+        delete[] m;
     }
 
 
@@ -128,7 +136,6 @@ public:
         int countOfVertices = 5;
         int startVertex;
 
-        set_start_vertex(startVertex);
 
         int** weights = new int* [countOfVertices] {
             new int[countOfVertices] { 0, 10, 3, 0, 0 },
@@ -140,11 +147,15 @@ public:
 
         show_matrix(weights, countOfVertices);
 
+        set_start_vertex(startVertex);
+
         dijkstra(weights, startVertex, countOfVertices);
+
         system("pause");
+        deallocate_matrix(weights, countOfVertices);
     }
 
-
+    // alternative demo function
     static void run_with_input() {
         cout << "Please, enter the number of vertices: ";
         int countOfVertices = 0;
@@ -163,13 +174,15 @@ public:
             }
         }
 
-        cout << "Please, enter start vertex: ";
-        int startVertex = 0;
+        int startVertex;
 
-        cin >> startVertex;
+        set_start_vertex(startVertex);
 
 
         dijkstra(weights, startVertex, countOfVertices);
+
+        system("pause");
+        deallocate_matrix(weights, countOfVertices);
     }
 
 };

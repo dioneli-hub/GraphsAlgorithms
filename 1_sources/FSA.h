@@ -83,7 +83,6 @@ private:
 				++x;
 			}
 				
-		//cout << "\n\n";
 
 		return Matrix;
 	}
@@ -107,7 +106,7 @@ private:
 	}
 
 	static void set_starting_point(int* start, int* const size) {
-		cout << "Enter the starting point:" << endl;
+		cout << "Please, enter the starting point:" << endl;
 
 		do {
 			cin >> *start;
@@ -141,7 +140,7 @@ public:
 
 		int** G = set_matrix_example(size);
 		
-		//int** G = set_matrix(size);
+		//int** G = set_matrix(size); // alternative way of filling the matriz via the input
 
 		show_matrix(G, size);
 
@@ -182,7 +181,6 @@ public:
 		set_colors(colors, size);
 
 		stack<int> mystack;
-		//int u;
 
 		colors[*start] = 1;
 		mystack.push(*start);

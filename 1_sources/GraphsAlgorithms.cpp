@@ -54,7 +54,7 @@ int main()
 		switch (choice)
 		{
 		case 0: {
-			utils::resize_window(700, 700);
+			utils::resize_window(600, 600);
 			utils::clearScreen();
 
 			FSA::run();
@@ -63,10 +63,11 @@ int main()
 			break;
 		}
 		case 1: {
-			utils::resize_window(700, 700);
+			utils::resize_window(600, 600);
 			utils::clearScreen();
 
 			Dijkstra::run();
+			//Dijkstra::run_with_input();
 
 			getchar();
 			break;
