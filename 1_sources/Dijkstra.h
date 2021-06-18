@@ -115,9 +115,12 @@ private:
         cout << "\n";
     }
 
-    static void set_start_vertex(int& start) {
+    static void set_starting_vertex(int& start, int size) {
         cout << "Please, enter the starting vertex:" << endl;
-        cin >> start;
+        do {
+            cin >> start;
+        } while (!(start < size));
+        
         cout << "\n";
     }
 
@@ -147,7 +150,7 @@ public:
 
         show_matrix(weights, countOfVertices);
 
-        set_start_vertex(startVertex);
+        set_starting_vertex(startVertex, countOfVertices);
 
         dijkstra(weights, startVertex, countOfVertices);
 
@@ -176,7 +179,7 @@ public:
 
         int startVertex;
 
-        set_start_vertex(startVertex);
+        set_starting_vertex(startVertex, countOfVertices);
 
 
         dijkstra(weights, startVertex, countOfVertices);
